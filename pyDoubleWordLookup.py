@@ -39,12 +39,11 @@ def buildWordMap():
         word = line.strip('\n')
         l = len(word)
         words = wordMap.get(l)
+        newSet = {word}
         if not words:
-            newSet = {word}
             wordMap[l] = newSet
         else:
-            wordSet = wordMap.get(l)
-            wordSet.add(word)
+            words.update(newSet)
                     
     return wordMap
 
@@ -78,7 +77,7 @@ def buildBestSearchSet(lwd, pattern1, pattern2):
     if narrowPattern:
         #print(len(bigWordSet))
 
-        narrowSet = {}
+        narrowSet = set()
         fCount = 0
 
         for word in bigWordSet:
@@ -88,10 +87,7 @@ def buildBestSearchSet(lwd, pattern1, pattern2):
             match = re.search(narrowPattern, word)
 
             if match:
-                if not narrowSet:
-                    narrowSet = { word }
-                else:
-                    narrowSet.add(word)
+                narrowSet.update({word})
 
         return narrowSet
 
@@ -138,10 +134,7 @@ def findWordCombos(firstSet, secondSet, subMap):
 
         if secondWord in secondSet:
             combo = mainWord + " / " + secondWord
-            if not comboSet:
-                comboSet = { combo }
-            else:
-                comboSet.add(combo)
+            comboSet.update({combo})
 
     return comboSet
 
@@ -152,7 +145,7 @@ def main():
                         help='First pattern to look up.')
     parser.add_argument('-p2', action='store', dest='pattern2',
                         help='Second pattern to look up.')
-    parser.add_argument('--version', action='version', version='%(prog)s 0.0.1')
+    parser.add_argument('--version', action='version', version='%(prog)s 1.0.0')
 
     args = parser.parse_args(sys.argv[1:])
     print(f'pattern1 = {args.pattern1}')

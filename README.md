@@ -40,6 +40,28 @@ expressions, and search through a dictionary of words to find possible matches.
       -p2 PATTERN2  Second pattern to look up.
       --version     show program's version number and exit
       
+      
+    ./pyDoubleWordLookup.py -p1 \?og\? -p2 \?un\?                                                          0 (0.276s) < 17:26:31
+    pattern1 = ?og?
+    pattern2 = ?un?
+    hogs / huns
+    pogo / puno
+    nogs / nuns
+    bogs / buns
+    toga / tuna
+    fogs / funs
+    doge / dune
+    togs / tuns
+    dogy / duny
+    mogs / muns
+    pogy / puny
+    hogg / hung
+    boga / buna
+    dogs / duns
+    togo / tuno
+    logy / luny
+    loge / lune
+      
 ## Sources
 
 The word list Is from a github project [dwyl/english-words](https://github.com/dwyl/english-words).
