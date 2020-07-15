@@ -55,7 +55,6 @@ def printWordMap(wordMap):
 
 
 def findCommonPattern(pattern1, pattern2):
-    #cp = "^"
     cp = ""
     cc = 0
     for i in range(len(pattern1)):
@@ -65,22 +64,19 @@ def findCommonPattern(pattern1, pattern2):
         else:
             cp += "[a-z]"
 
-    print(f'cc = {cc}')
-
     if cc == 0:
         return ""
 
-    #cp += '$'
     return cp
 
 
 def buildBestSearchSet(lwd, pattern1, pattern2):
     bigWordSet = lwd.get(len(pattern1))
     narrowPattern = findCommonPattern(pattern1=pattern1, pattern2=pattern2).replace("?", "[a-z]")
-    print(f'Narrow Pattern = {narrowPattern}')
+    # print(f'Narrow Pattern = {narrowPattern}')
 
     if narrowPattern:
-        print(len(bigWordSet))
+        #print(len(bigWordSet))
 
         narrowSet = {}
         fCount = 0
@@ -97,7 +93,6 @@ def buildBestSearchSet(lwd, pattern1, pattern2):
                 else:
                     narrowSet.add(word)
 
-        print(fCount)
         return narrowSet
 
     return bigWordSet
@@ -106,7 +101,6 @@ def buildBestSearchSet(lwd, pattern1, pattern2):
 def buildPatternSet(searchSet, pattern):
     pSet = set()
     for x in searchSet:
-        # print(f'pattern {pattern} word {x}')
         match = re.search(pattern, x)
         if match:
             pSet.add(x)
@@ -166,21 +160,18 @@ def main():
 
     if checkPatterns(pattern1=args.pattern1, pattern2=args.pattern2) == 'good':
         chSubMap1 = createSubstitutionMap(pattern1=args.pattern1, pattern2=args.pattern2)
-        chSubMap2 = createSubstitutionMap(pattern1=args.pattern2, pattern2=args.pattern1)
         pattern1 = args.pattern1.replace("?", "[a-z]")
         pattern2 = args.pattern2.replace("?", "[a-z]")
-        print(f'pattern1 = {pattern1}')
-        print(f'pattern2 = {pattern2}')
         lengthWordDictionary = buildWordMap()
-        printWordMap(wordMap=lengthWordDictionary)
+        # printWordMap(wordMap=lengthWordDictionary)
         searchSet = buildBestSearchSet(lwd=lengthWordDictionary, pattern1=args.pattern1, pattern2=args.pattern2)
-        print(f'search set size: {len(searchSet)}')
+        # print(f'search set size: {len(searchSet)}')
         p1Set = buildPatternSet(searchSet=searchSet, pattern=pattern1)
         p2Set = buildPatternSet(searchSet=searchSet, pattern=pattern2)
-        print(f'p1Set size = {len(p1Set)} \t p2Set size = {len(p2Set)}')
-        print(p1Set)
-        print(p2Set)
-        print(chSubMap1)
+        # print(f'p1Set size = {len(p1Set)} \t p2Set size = {len(p2Set)}')
+        # print(p1Set)
+        # print(p2Set)
+        # print(chSubMap1)
         wordSet = findWordCombos(firstSet=p1Set, secondSet=p2Set, subMap=chSubMap1)
         for combo in wordSet:
             print(combo)
