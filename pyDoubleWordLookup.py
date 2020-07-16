@@ -145,7 +145,7 @@ def main():
                         help='First pattern to look up.')
     parser.add_argument('-p2', action='store', dest='pattern2',
                         help='Second pattern to look up.')
-    parser.add_argument('--version', action='version', version='%(prog)s 1.0.0')
+    parser.add_argument('--version', action='version', version='%(prog)s 1.0.1')
 
     args = parser.parse_args(sys.argv[1:])
     print(f'pattern1 = {args.pattern1}')
@@ -165,7 +165,7 @@ def main():
         # print(p1Set)
         # print(p2Set)
         # print(chSubMap1)
-        wordSet = findWordCombos(firstSet=p1Set, secondSet=p2Set, subMap=chSubMap1)
+        wordSet = sorted(findWordCombos(firstSet=p1Set, secondSet=p2Set, subMap=chSubMap1))
         for combo in wordSet:
             print(combo)
 

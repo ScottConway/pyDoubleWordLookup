@@ -41,26 +41,26 @@ expressions, and search through a dictionary of words to find possible matches.
       --version     show program's version number and exit
       
       
-    ./pyDoubleWordLookup.py -p1 \?og\? -p2 \?un\?                                                          0 (0.276s) < 17:26:31
+    ./pyDoubleWordLookup.py -p1 \?og\? -p2 \?un\?     ./pyDoubleWordLookup.py -p1 \?og\? -p2 \?un\?                                                          0 (0.295s) < 17:30:58
     pattern1 = ?og?
     pattern2 = ?un?
-    hogs / huns
-    pogo / puno
-    nogs / nuns
-    bogs / buns
-    toga / tuna
-    fogs / funs
-    doge / dune
-    togs / tuns
-    dogy / duny
-    mogs / muns
-    pogy / puny
-    hogg / hung
     boga / buna
+    bogs / buns
+    doge / dune
     dogs / duns
-    togo / tuno
-    logy / luny
+    dogy / duny
+    fogs / funs
+    hogg / hung
+    hogs / huns
     loge / lune
+    logy / luny
+    mogs / muns
+    nogs / nuns
+    pogo / puno
+    pogy / puny
+    toga / tuna
+    togo / tuno
+    togs / tuns
       
 ## Sources
 
